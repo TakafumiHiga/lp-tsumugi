@@ -1,0 +1,89 @@
+//カラー
+$cnavy: #092533;
+$cgray: #cad8df;
+$cred: #cc2121;
+$cwhite: #ffffff;
+
+//レスポンシブ
+$breakPoint-768px: 768px;
+$breakPoint-901px: 901px;
+$breakPoint-1042px: 1042px;
+$breakPoint-1100px: 1100px;
+@mixin mediaQueryTblet-900 {
+  @media screen and (min-width: $breakPoint-901px) {
+    @content;
+  }
+}
+
+@mixin mediaQueryTblet {
+  @media screen and (min-width: $breakPoint-1042px) {
+    @content;
+  }
+}
+
+@mixin mediaQueryTblet-s {
+  @media screen and (min-width: $breakPoint-768px) {
+    @content;
+  }
+}
+
+@mixin mediaQueryTblet-l {
+  @media screen and (min-width: $breakPoint-1100px) {
+    @content;
+  }
+}
+
+.container {
+  padding: 0 16px;
+  max-width: 1000px;
+  margin: 0 auto;
+  @include mediaQueryTblet-s {
+    width: 100%;
+  }
+
+  @include mediaQueryTblet-l {
+    padding: 0;
+  }
+}
+
+//フォント
+
+//タイトル日本語
+
+@mixin font__header-jp($color: $cnavy, $size: 2.4rem, $weight: 700) {
+  font-family: "Noto Sans JP";
+  font-weight: $weight;
+  color: $color;
+  font-size: $size;
+}
+
+@mixin header($color: $cnavy, $size: 2rem, $weight: 700) {
+  font-family: "Noto Sans JP";
+  font-weight: $weight;
+  color: $color;
+  font-size: $size;
+  line-height: 34.75px;
+}
+
+@mixin header__line($color: $cnavy) {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    width: 70px;
+    content: "";
+    bottom: -32px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom: solid 1px $color;
+  }
+}
+
+//タイトル英数
+
+@mixin font__header-en($color: $cgray, $size: 2.4rem) {
+  font-family: "Cinzel";
+  font-weight: 700;
+  color: $color;
+  font-size: $size;
+}
